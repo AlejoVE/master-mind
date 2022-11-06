@@ -1,0 +1,15 @@
+.available-colors-container {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	grid-template-rows: repeat(2, 1fr);
+	width: 15%;
+	margin: 0 auto;
+	border: 1px solid red;
+	place-items: center;
+	margin-top: 5rem;
+	background-color: #dbad8b;
+}
+
+.square {
+	border: 2px double #b2774b;
+}
