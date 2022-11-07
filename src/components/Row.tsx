@@ -65,7 +65,7 @@ function Row(props: RowProps) {
 			setGameOver(true);
 		}
 
-		if (rowsLeft <= 0) {
+		if (!gameOver && rowsLeft <= 0) {
 			Swal('Game over', '', 'error');
 			setGameOver(true);
 		}
