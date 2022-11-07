@@ -10,7 +10,7 @@ type RowProps = {
 };
 
 function Row(props: RowProps) {
-	const { currentColor, currentCode } = useContext(GameContext);
+	const { currentColor, currentCode, setGameOver } = useContext(GameContext);
 	const rowEl = useRef<HTMLDivElement>(null);
 	const gridEl = useRef<HTMLDivElement>(null);
 	const [displayCheckButton, setDisplayCheckButton] = useState<boolean>(false);
@@ -50,7 +50,11 @@ function Row(props: RowProps) {
 	const checkUserAnswers = () => {
 		setDisplayCheckButton(false);
 		setDisabled(true);
-		checkAnswers(rowEl, gridEl, currentCode);
+		const gameOver = checkAnswers(rowEl, gridEl, currentCode);
+
+		if (gameOver) {
+			setGameOver(true);
+		}
 	};
 
 	return (

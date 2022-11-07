@@ -60,5 +60,6 @@ export const checkAnswers = (
 
 	if (currentCode.toString() === rowColors.toString()) {
 		Swal('YOU WON!', 'Congratulations', 'success');
+		return true;
 	}
 };

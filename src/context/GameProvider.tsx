@@ -1,22 +1,31 @@
-import {FC, useState} from 'react'
-import { Colors } from '../types/types'
-import { GameContext } from './gameContext'
+import { FC, useState } from 'react';
+import { Colors } from '../types/types';
+import { GameContext } from './gameContext';
 import { generateRandomCode } from '../helpers/helpers';
 
 interface Props {
-    children: JSX.Element
+	children: JSX.Element;
 }
 
-const colors = Object.values(Colors)
-const currentCode = generateRandomCode(colors)
+const colors = Object.values(Colors);
+const currentCode = generateRandomCode(colors);
 
- const  GameProvider: FC<Props> = ({children}: Props) => {
-    const [currentColor, setCurrentColor] = useState<string>('')
-  return (
-    <GameContext.Provider value={{currentColor, setCurrentColor, currentCode}}>
-        {children}
-    </GameContext.Provider>
-  )
-}
+const GameProvider: FC<Props> = ({ children }: Props) => {
+	const [currentColor, setCurrentColor] = useState<string>('');
+	const [gameOver, setGameOver] = useState<boolean>(false);
+	return (
+		<GameContext.Provider
+			value={{
+				currentColor,
+				setCurrentColor,
+				currentCode,
+				gameOver,
+				setGameOver,
+			}}
+		>
+			{children}
+		</GameContext.Provider>
+	);
+};
 
-export default GameProvider
+export default GameProvider;
