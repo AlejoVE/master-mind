@@ -3,12 +3,14 @@ type ButtonProps = {
   size: string;
   color?: string;
   onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void,
+  disabled?: boolean
 
 };
 
 function Circle(props: ButtonProps) {
   return (
     <button
+      disabled={props.disabled}
       className="button"
       onClick={props.onClick}
       data-color={props.color}
