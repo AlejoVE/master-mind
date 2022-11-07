@@ -1,21 +1,19 @@
 import {FC, useState} from 'react'
+import { Colors } from '../types/types'
 import { GameContext } from './gameContext'
+import { generateRandomCode } from '../helpers/helpers';
 
 interface Props {
     children: JSX.Element
 }
 
-
+const colors = Object.values(Colors)
+const currentCode = generateRandomCode(colors)
 
  const  GameProvider: FC<Props> = ({children}: Props) => {
     const [currentColor, setCurrentColor] = useState<string>('')
-    const handleClick = (e: React.MouseEvent<HTMLButtonElement>)=> {
-        const color: string = (e.target as HTMLButtonElement).getAttribute('data-color') as string
-        setCurrentColor(color)
-        console.log({currentColor})
-    }
   return (
-    <GameContext.Provider value={{currentColor, setCurrentColor}}>
+    <GameContext.Provider value={{currentColor, setCurrentColor, currentCode}}>
         {children}
     </GameContext.Provider>
   )

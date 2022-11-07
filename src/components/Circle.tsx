@@ -1,15 +1,16 @@
-import React, { useContext } from "react";
-import { GameContext } from "../context/gameContext";
 
 type ButtonProps = {
   size: string;
   color?: string;
+  onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void,
+
 };
 
 function Circle(props: ButtonProps) {
   return (
     <button
       className="button"
+      onClick={props.onClick}
       data-color={props.color}
       style={{
         backgroundColor: `${props.color || "#53483F"}`,

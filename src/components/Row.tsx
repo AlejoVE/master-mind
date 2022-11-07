@@ -1,35 +1,46 @@
-import React, { useContext } from 'react'
+import React, { useContext, useRef } from 'react'
 import Circle from './Circle'
 import { GameContext } from '../context/gameContext';
+import { Colors } from '../types/types';
+import swal from 'sweetalert';
+import { checkAnswers } from '../helpers/helpers';
+
 
 type RowProps = {
-    circle?: number
+    circle?: number,
+    id: string
 }
 
 function Row(props: RowProps) {
+    const {currentColor, currentCode} = useContext(GameContext)
+    const rowEl = useRef<HTMLDivElement>(null)
+    const gridEl =  useRef<HTMLDivElement>(null)
 
-    const context = useContext(GameContext)
-    const currentColor = context?.currentColor
-    const style = {
-     backgroundColor: `${currentColor ? currentColor : '#53483F'}`
-    }
+    // Change  button color
     const handleClick = (e: React.MouseEvent<HTMLButtonElement>)=>{
-     const color: string = (e.target as HTMLButtonElement).getAttribute('data-color') as string;
- 
-     if(context?.currentColor === '') {
- 
-     }
+     if(currentColor) {
+         (e.target as HTMLButtonElement).style.backgroundColor = currentColor;
+         (e.target as HTMLButtonElement).setAttribute('data-color', currentColor)
+        }
     }
+
+    const checkUserAnswers = ()=>{
+        checkAnswers(rowEl, gridEl, currentCode)
+    }
+
   return (
     <div className='row-main'>
         <div className='row-main-container'>
             <div className='row-circles-container' >
-                <Circle size='3' />
-                <Circle size='3' />
-                <Circle size='3' />
-                <Circle size='3' />
+                <div ref={rowEl}>
+                <Circle onClick={handleClick}  size='3' />
+                <Circle onClick={handleClick}  size='3' />
+                <Circle onClick={handleClick}  size='3' />
+                <Circle onClick={handleClick}  size='3' />
+                </div>
+                <button onClick={checkUserAnswers}>CHECK button</button>
             </div>
-            <div className='row-grid'>
+            <div ref={gridEl} className='row-grid'>
                 <Circle size='1.2' />
                 <Circle size='1.2' />
                 <Circle size='1.2' />
