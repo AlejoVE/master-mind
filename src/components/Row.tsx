@@ -3,6 +3,7 @@ import Circle from './Circle';
 import { GameContext } from '../context/gameContext';
 import { checkAnswers } from '../helpers/helpers';
 import { useState } from 'react';
+import Swal from 'sweetalert';
 
 type RowProps = {
 	circle?: number;
@@ -10,7 +11,13 @@ type RowProps = {
 };
 
 function Row(props: RowProps) {
-	const { currentColor, currentCode, setGameOver } = useContext(GameContext);
+	const {
+		currentColor,
+		currentCode,
+		setGameOver,
+		setAvailableRows,
+		availableRows,
+	} = useContext(GameContext);
 	const rowEl = useRef<HTMLDivElement>(null);
 	const gridEl = useRef<HTMLDivElement>(null);
 	const [displayCheckButton, setDisplayCheckButton] = useState<boolean>(false);
@@ -48,11 +55,18 @@ function Row(props: RowProps) {
 	};
 
 	const checkUserAnswers = () => {
+		const rowsLeft = availableRows - 1;
+		setAvailableRows(rowsLeft);
 		setDisplayCheckButton(false);
 		setDisabled(true);
 		const gameOver = checkAnswers(rowEl, gridEl, currentCode);
 
 		if (gameOver) {
+			setGameOver(true);
+		}
+
+		if (rowsLeft <= 0) {
+			Swal('Game over', '', 'error');
 			setGameOver(true);
 		}
 	};

@@ -6,6 +6,8 @@ interface GameContextType {
 	currentCode: string[];
 	gameOver: boolean;
 	setGameOver: React.Dispatch<React.SetStateAction<boolean>>;
+	availableRows: number;
+	setAvailableRows: React.Dispatch<React.SetStateAction<number>>;
 }
 
 export const GameContext = createContext<GameContextType>(

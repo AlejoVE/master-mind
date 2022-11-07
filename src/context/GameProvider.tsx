@@ -13,6 +13,7 @@ const currentCode = generateRandomCode(colors);
 const GameProvider: FC<Props> = ({ children }: Props) => {
 	const [currentColor, setCurrentColor] = useState<string>('');
 	const [gameOver, setGameOver] = useState<boolean>(false);
+	const [availableRows, setAvailableRows] = useState<number>(5);
 	return (
 		<GameContext.Provider
 			value={{
@@ -21,6 +22,8 @@ const GameProvider: FC<Props> = ({ children }: Props) => {
 				currentCode,
 				gameOver,
 				setGameOver,
+				availableRows,
+				setAvailableRows,
 			}}
 		>
 			{children}
