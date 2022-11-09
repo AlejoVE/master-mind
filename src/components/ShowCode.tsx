@@ -10,7 +10,12 @@ function ShowCode() {
 			{gameOver ? (
 				currentCode.map((color) => {
 					return (
-						<Circle key={color} disabled={true} color={color} size='4' />
+						<Circle
+							key={color}
+							disabled={true}
+							color={'white'}
+							size='4'
+						/>
 					);
 				})
 			) : (

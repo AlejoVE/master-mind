@@ -1,12 +1,27 @@
+import { changeButtonColor } from '../helpers/helpers';
+import useRef from 'react';
+import { useContext } from 'react';
+import { GameContext } from '../context/gameContext';
+
 type ButtonProps = {
 	size: string;
 	color?: string;
 	onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;
 	disabled?: boolean;
 	gameOver?: boolean;
+	className?: string;
 };
 
 function Circle(props: ButtonProps) {
+	const { gameOver } = useContext(GameContext);
+	const button = document.querySelector('button') as HTMLButtonElement;
+
+	if (gameOver) {
+		if (button) {
+			button.style.backgroundColor = 'green';
+		}
+	}
+
 	return (
 		<>
 			{props.gameOver ? (

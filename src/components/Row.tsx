@@ -10,7 +10,11 @@ import { useState } from 'react';
 import Swal from 'sweetalert';
 import { useReset } from '../hooks/useReset';
 
-function Row() {
+interface RowProps {
+	handleGlobalColor: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+function Row(props: RowProps) {
 	const {
 		currentColor,
 		currentCode,
@@ -27,10 +31,13 @@ function Row() {
 	const [disabled, setDisabled] = useState<boolean>(false);
 	const reset = useReset();
 	const slots = Array.from(Array(4).keys());
+	const [buttonColor, setButtonColor] = useState<string>('white');
 
 	// Change  button color
 	const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
 		if (currentColor) {
+			// setButtonColor(currentColor);
+			// props.handleGlobalColor('red');
 			changeButtonColor(e, currentColor);
 		}
 		const userAnswers = getRowColors(rowEl);
@@ -49,6 +56,8 @@ function Row() {
 		if (gameOver) {
 			setGameOver(true);
 			setScore(score + 1);
+			setButtonColor('white');
+			props.handleGlobalColor(true);
 			setTimeout(() => {
 				reset();
 			}, 2000);
@@ -57,9 +66,11 @@ function Row() {
 		if (!gameOver && rowsLeft <= 0) {
 			Swal('Game over', '', 'error');
 			setGameOver(true);
+			setButtonColor('white');
+			props.handleGlobalColor(true);
 			setTimeout(() => {
 				reset();
-			}, 2000);
+			}, 5000);
 			if (score > 0) {
 				setScore(score - 1);
 			}
@@ -78,7 +89,9 @@ function Row() {
 									gameOver={gameOver}
 									disabled={disabled}
 									onClick={handleClick}
+									// color={buttonColor}
 									size='3'
+									className={buttonColor}
 								/>
 							);
 						})}
@@ -88,6 +101,7 @@ function Row() {
 					)}
 				</div>
 				<div ref={gridEl} className='row-grid'>
+					{/* Small grid */}
 					{slots.map((row, i) => {
 						return (
 							<Circle
