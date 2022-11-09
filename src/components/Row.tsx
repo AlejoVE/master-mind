@@ -34,7 +34,9 @@ function Row(props: RowProps) {
 
 	// Change  button color
 	const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
-		changeButtonColor(e, currentColor);
+		if (currentColor) {
+			changeButtonColor(e, currentColor);
+		}
 		const userAnswers = getRowColors(rowEl);
 		if (userAnswers.length === currentCode.length) {
 			setDisplayCheckButton(true);
