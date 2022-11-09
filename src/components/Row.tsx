@@ -10,11 +10,7 @@ import { useState } from 'react';
 import Swal from 'sweetalert';
 import { useReset } from '../hooks/useReset';
 
-type RowProps = {
-	circle?: number;
-};
-
-function Row(props: RowProps) {
+function Row() {
 	const {
 		currentColor,
 		currentCode,

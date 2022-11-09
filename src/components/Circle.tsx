@@ -22,7 +22,9 @@ function Circle(props: ButtonProps) {
 						height: `${props.size}rem`,
 						minHeight: `${props.size}rem`,
 					}}
-				></button>
+				>
+					GAME OVER
+				</button>
 			) : (
 				<button
 					disabled={props.disabled}
@@ -38,7 +40,9 @@ function Circle(props: ButtonProps) {
 						height: `${props.size}rem`,
 						minHeight: `${props.size}rem`,
 					}}
-				></button>
+				>
+					PLAYING
+				</button>
 			)}
 		</>
 	);

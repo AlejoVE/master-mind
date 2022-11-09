@@ -4,7 +4,8 @@ import { GameContext } from '../context/gameContext';
 import { Colors } from '../types/types';
 
 function AvailableColors() {
-	const { setCurrentColor, currentColor, gameOver } = useContext(GameContext);
+	const { setCurrentColor, currentColor } = useContext(GameContext);
+	const colors = Object.values(Colors);
 	const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
 		const color: string = (e.target as HTMLButtonElement).getAttribute(
 			'data-color'
@@ -21,24 +22,13 @@ function AvailableColors() {
 				size='4'
 			/>
 			<div className='available-colors-container'>
-				<div className='square'>
-					<Circle onClick={handleClick} color={Colors.RED} size='4' />
-				</div>
-				<div className='square'>
-					<Circle onClick={handleClick} color={Colors.YELLOW} size='4' />
-				</div>
-				<div className='square'>
-					<Circle onClick={handleClick} color={Colors.BLUE} size='4' />
-				</div>
-				<div className='square'>
-					<Circle onClick={handleClick} color={Colors.BLACK} size='4' />
-				</div>
-				<div className='square'>
-					<Circle onClick={handleClick} color={Colors.PURPLE} size='4' />
-				</div>
-				<div className='square'>
-					<Circle onClick={handleClick} color={Colors.GREEN} size='4' />
-				</div>
+				{colors.map((color) => {
+					return (
+						<div className='square'>
+							<Circle onClick={handleClick} color={color} size='4' />
+						</div>
+					);
+				})}
 			</div>
 		</>
 	);

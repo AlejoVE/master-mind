@@ -27,7 +27,7 @@ const GameProvider: FC<Props> = ({ children }: Props) => {
 				setAvailableRows,
 				score,
 				setScore,
-				gameRows: 6,
+				gameRows: 2,
 			}}
 		>
 			{children}
