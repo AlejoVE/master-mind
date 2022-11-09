@@ -8,6 +8,9 @@ interface GameContextType {
 	setGameOver: React.Dispatch<React.SetStateAction<boolean>>;
 	availableRows: number;
 	setAvailableRows: React.Dispatch<React.SetStateAction<number>>;
+	score: number;
+	setScore: React.Dispatch<React.SetStateAction<number>>;
+	gameRows: number;
 }
 
 export const GameContext = createContext<GameContextType>(

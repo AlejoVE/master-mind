@@ -66,3 +66,28 @@ export const checkAnswers = (
 		return true;
 	}
 };
+
+export const changeButtonColor = (
+	e: React.MouseEvent<HTMLButtonElement>,
+	color: string
+) => {
+	(e.target as HTMLButtonElement).style.backgroundColor = color;
+	(e.target as HTMLButtonElement).setAttribute('data-color', color);
+};
+
+export const getRowColors = (rowEl: React.RefObject<HTMLDivElement>) => {
+	const rowChildren = rowEl.current?.childNodes;
+	const rowColors: (string | null)[] = [];
+
+	if (rowChildren) {
+		// The current colors in the row (default and user colors), if user did not put a color, the data-color attribute will be null
+		rowChildren.forEach((button) => {
+			const color = (button as HTMLButtonElement).getAttribute('data-color');
+			rowColors.push(color);
+		});
+	}
+
+	const filteredColors = rowColors.filter((color) => color !== null);
+
+	return filteredColors;
+};

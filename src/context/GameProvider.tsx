@@ -14,6 +14,7 @@ const GameProvider: FC<Props> = ({ children }: Props) => {
 	const [currentColor, setCurrentColor] = useState<string>('');
 	const [gameOver, setGameOver] = useState<boolean>(false);
 	const [availableRows, setAvailableRows] = useState<number>(5);
+	const [score, setScore] = useState<number>(0);
 	return (
 		<GameContext.Provider
 			value={{
@@ -24,6 +25,9 @@ const GameProvider: FC<Props> = ({ children }: Props) => {
 				setGameOver,
 				availableRows,
 				setAvailableRows,
+				score,
+				setScore,
+				gameRows: 2,
 			}}
 		>
 			{children}

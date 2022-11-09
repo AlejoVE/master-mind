@@ -1,19 +1,28 @@
 import AvailableColors from './AvailableColors';
 import Row from './Row';
 import ShowCode from './ShowCode';
+import { useContext, useEffect } from 'react';
+import { GameContext } from '../context/gameContext';
 
 function GamePage() {
+	const { score, gameRows, setAvailableRows } = useContext(GameContext);
+	const gameRowsArr = Array.from(Array(gameRows).keys());
+
+	useEffect(() => {
+		setAvailableRows(gameRows);
+	}, [gameRows, setAvailableRows]);
+
 	return (
-		<div className='page-content'>
-			{/* Size in rem */}
-			<ShowCode />
-			<Row id='row-1' />
-			<Row id='row-2' />
-			<Row id='row-3' />
-			<Row id='row-4' />
-			<Row id='row-5' />
-			<AvailableColors />
-		</div>
+		<>
+			<h2>SCORE: {score}</h2>
+			<div className='page-content'>
+				<ShowCode />
+				{gameRowsArr.map((row, i) => (
+					<Row key={i} />
+				))}
+				<AvailableColors />
+			</div>
+		</>
 	);
 }
 
