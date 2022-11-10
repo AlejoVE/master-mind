@@ -8,7 +8,6 @@ import {
 } from '../helpers/helpers';
 import { useState } from 'react';
 import Swal from 'sweetalert';
-import { useReset } from '../hooks/useReset';
 
 function Row() {
 	const {
@@ -17,15 +16,12 @@ function Row() {
 		setGameOver,
 		setAvailableRows,
 		availableRows,
-		score,
-		setScore,
 		gameOver,
 	} = useContext(GameContext);
 	const rowEl = useRef<HTMLDivElement>(null);
 	const gridEl = useRef<HTMLDivElement>(null);
 	const [displayCheckButton, setDisplayCheckButton] = useState<boolean>(false);
 	const [disabled, setDisabled] = useState<boolean>(false);
-	const reset = useReset();
 	const slots = Array.from(Array(4).keys());
 
 	// Change  button color
@@ -48,21 +44,11 @@ function Row() {
 
 		if (gameOver) {
 			setGameOver(true);
-			setScore(score + 1);
-			setTimeout(() => {
-				reset();
-			}, 2000);
 		}
 
 		if (!gameOver && rowsLeft <= 0) {
 			Swal('Game over', '', 'error');
 			setGameOver(true);
-			setTimeout(() => {
-				reset();
-			}, 2000);
-			if (score > 0) {
-				setScore(score - 1);
-			}
 		}
 	};
 
