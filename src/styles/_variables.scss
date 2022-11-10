@@ -1,5 +1,15 @@
 //colors
 $wood: #bc916c;
+$red: #d00000;
+$yellow: #ffba08;
+$blue: #410fe6;
+$purple: #e000c2;
+$green: #2c6e49;
+$black: #0f1a20;
 
 //other
 $border-radius: 4px;
+//colorful outline
+%crazy-outline {
+  box-shadow: 0 0 0 10px $yellow, 0 0 0 20px $purple, 0 0 0 30px $blue;
+}
