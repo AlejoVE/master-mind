@@ -1,0 +1,9 @@
+.instructions-grid {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	width: 90%;
+
+	h2 {
+		text-align: center;
+	}
+}

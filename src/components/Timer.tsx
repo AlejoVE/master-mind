@@ -4,7 +4,7 @@ import { GameContext } from '../context/gameContext';
 import { triggerGameOverModal } from '../helpers/helpers';
 
 function Timer() {
-	const [minutes, setMinutes] = useState<number>(2);
+	const [minutes, setMinutes] = useState<number>(5);
 	const [seconds, setSeconds] = useState<number>(0);
 	const timerMinutes = minutes < 10 ? `0${minutes}` : minutes;
 	const timerSeconds = seconds < 10 ? `0${seconds}` : seconds;

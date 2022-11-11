@@ -1,61 +1,62 @@
-@import "./buttons";
-@import "./row";
-@import "./availableColors";
-@import "./variables";
+@import './buttons';
+@import './row';
+@import './availableColors';
+@import './instructions';
+@import './variables';
 
 body {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
-  font-family: monospace;
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+	font-family: monospace;
 }
 
 .page-content {
-  width: 100vw;
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+	width: 100vw;
+	height: 100vh;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
 }
 
 .start-header {
-  font-size: 56px;
-  font-weight: 600;
-  background-color: $green;
-  padding: 2rem;
-  border-radius: 220px;
-  color: white;
-  @extend %crazy-outline;
+	font-size: 56px;
+	font-weight: 600;
+	background-color: $green;
+	padding: 2rem;
+	border-radius: 220px;
+	color: white;
+	@extend %crazy-outline;
 }
 
 .question {
-  font-size: 20px;
-  margin-bottom: 1rem;
-  color: $black;
-  display: block;
+	font-size: 20px;
+	margin-bottom: 1rem;
+	color: $black;
+	display: block;
 
-  .options {
-    display: flex;
-    justify-content: center;
-    gap: 3rem;
-    font-size: 30px;
-  }
+	.options {
+		display: flex;
+		justify-content: center;
+		gap: 3rem;
+		font-size: 30px;
+	}
 }
 
 #start-game {
-  margin-top: 2rem;
-  padding: 1rem;
-  border-radius: 20px;
-  background-color: $black;
-  text-decoration: none;
-  text-transform: uppercase;
-  color: white;
-  font-size: 20px;
-  font-weight: 800;
+	margin-top: 2rem;
+	padding: 1rem;
+	border-radius: 20px;
+	background-color: $black;
+	text-decoration: none;
+	text-transform: uppercase;
+	color: white;
+	font-size: 20px;
+	font-weight: 800;
 
-  &:hover {
-    background-color: $yellow;
-    color: $black;
-  }
+	&:hover {
+		background-color: $yellow;
+		color: $black;
+	}
 }
