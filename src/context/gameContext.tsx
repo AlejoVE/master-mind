@@ -9,10 +9,8 @@ interface GameContextType {
 	availableRows: number;
 	setAvailableRows: React.Dispatch<React.SetStateAction<number>>;
 	gameRows: number;
-	customColors: number;
-	setCustomColors: React.Dispatch<React.SetStateAction<number>>;
-	customRows: number;
-	setCustomRows: React.Dispatch<React.SetStateAction<number>>;
+	startTimer: boolean;
+	setStartTimer: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 export const GameContext = createContext<GameContextType>(

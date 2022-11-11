@@ -7,7 +7,7 @@ import {
 	getRowColors,
 } from '../helpers/helpers';
 import { useState } from 'react';
-import Swal from 'sweetalert';
+import { triggerGameOverModal } from '../helpers/helpers';
 
 function Row() {
 	const {
@@ -17,6 +17,8 @@ function Row() {
 		setAvailableRows,
 		availableRows,
 		gameOver,
+		setStartTimer,
+		startTimer,
 	} = useContext(GameContext);
 	const rowEl = useRef<HTMLDivElement>(null);
 	const gridEl = useRef<HTMLDivElement>(null);
@@ -26,6 +28,7 @@ function Row() {
 
 	// Change  button color
 	const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
+		if (gameOver) return;
 		if (currentColor) {
 			changeButtonColor(e, currentColor);
 		}
@@ -44,11 +47,13 @@ function Row() {
 
 		if (gameOver) {
 			setGameOver(true);
+			setStartTimer(false);
 		}
 
 		if (!gameOver && rowsLeft <= 0) {
-			Swal('Game over', '', 'error');
+			triggerGameOverModal();
 			setGameOver(true);
+			setStartTimer(false);
 		}
 	};
 
@@ -69,7 +74,7 @@ function Row() {
 							);
 						})}
 					</div>
-					{displayCheckButton && (
+					{displayCheckButton && !gameOver && (
 						<button onClick={checkUserAnswers}>CHECK button</button>
 					)}
 				</div>

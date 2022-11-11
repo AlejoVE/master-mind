@@ -91,3 +91,7 @@ export const getRowColors = (rowEl: React.RefObject<HTMLDivElement>) => {
 
 	return filteredColors;
 };
+
+export const triggerGameOverModal = () => {
+	Swal('Game over', '', 'error');
+};

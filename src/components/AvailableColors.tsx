@@ -5,13 +5,17 @@ import { Colors } from '../types/types';
 
 function AvailableColors() {
 	/* indication which color is selected */
-	const { setCurrentColor, currentColor } = useContext(GameContext);
+	const { setCurrentColor, currentColor, setStartTimer, gameOver } =
+		useContext(GameContext);
 	const colors = Object.values(Colors);
 	const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
 		const color: string = (e.target as HTMLButtonElement).getAttribute(
 			'data-color'
 		) as string;
 		setCurrentColor(color);
+		// To avoid to trigger the modal from timer when time left = 0
+		if (gameOver) return;
+		setStartTimer(true);
 	};
 
 	return (
