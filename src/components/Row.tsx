@@ -18,7 +18,6 @@ function Row() {
 		availableRows,
 		gameOver,
 		setStartTimer,
-		startTimer,
 	} = useContext(GameContext);
 	const rowEl = useRef<HTMLDivElement>(null);
 	const gridEl = useRef<HTMLDivElement>(null);

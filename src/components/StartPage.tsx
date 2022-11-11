@@ -1,5 +1,4 @@
-import React, { useContext } from 'react';
-import { GameContext } from '../context/gameContext';
+import React from 'react';
 import { Link } from 'react-router-dom';
 
 function StartPage() {

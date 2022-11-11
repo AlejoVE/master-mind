@@ -1,5 +1,5 @@
 import React from 'react';
-import { useState, useEffect, useContext } from 'react';
+import { useState, useContext } from 'react';
 import { GameContext } from '../context/gameContext';
 import { triggerGameOverModal } from '../helpers/helpers';
 
