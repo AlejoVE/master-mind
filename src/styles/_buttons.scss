@@ -1,3 +1,5 @@
+@import "./variables";
+
 .size10 {
   height: 3rem;
   min-height: 3rem;
@@ -41,4 +43,21 @@ button {
   background: #32271c;
   border: none;
   box-shadow: inset 5px 5px 19px rgb(53, 39, 22);
+}
+
+%cta-button {
+  margin-top: 1rem;
+  padding: 1rem 2rem;
+  border-radius: 20px;
+  background-color: $black;
+  text-decoration: none;
+  text-transform: uppercase;
+  color: white;
+  font-size: 20px;
+  font-weight: 800;
+
+  &:hover {
+    background-color: $yellow;
+    color: $black;
+  }
 }
