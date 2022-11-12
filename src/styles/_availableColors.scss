@@ -8,6 +8,10 @@
   gap: 2rem;
 }
 .current-color {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   .color {
     border: 10px solid lighten($wood, 20%);
     border-radius: 50px;

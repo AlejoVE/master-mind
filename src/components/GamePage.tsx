@@ -26,25 +26,30 @@ function GamePage() {
           Home
         </Link>
         <div className="game">
-          <div className="timer" id="timer">
-            <Timer />
+          <div className="header">
+            <div className="timer" id="timer">
+              {/* <Timer /> */}
+              {gameOver ? (
+                <button className="new-game" id="new-game" onClick={reloadPage}>
+                  NEW GAME
+                </button>
+              ) : (
+                <Timer />
+              )}
+            </div>
+
+            <div className="sequence" id="sequence">
+              <ShowCode />
+            </div>
           </div>
-          {gameOver && (
-            <button className="new-game" id="new-game" onClick={reloadPage}>
-              NEW GAME
-            </button>
-          )}
-          <div className="sequence" id="sequence">
-            <ShowCode />
-          </div>
-          <div className="board" id="board">
-            {gameRowsArr.map((row, i) => (
-              <Row key={i} />
-            ))}
-          </div>
-          <div className="available-colors" id="available-colors">
-            <AvailableColors />
-          </div>
+        </div>
+        <div className="board" id="board">
+          {gameRowsArr.map((row, i) => (
+            <Row key={i} />
+          ))}
+        </div>
+        <div className="available-colors" id="available-colors">
+          <AvailableColors />
         </div>
       </div>
     </>
