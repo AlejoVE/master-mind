@@ -47,13 +47,13 @@ export const checkAnswers = (
       availablePositions.splice(randomIndex, 1);
       if (currentCode[i] === rowColors[i]) {
         if (gridChildren) {
-          (gridChildren[value] as HTMLButtonElement).style.backgroundColor =
-            Colors.YELLOW;
+          (gridChildren[value] as HTMLButtonElement).classList.remove("check");
+          (gridChildren[value] as HTMLButtonElement).classList.add("white");
         }
       } else {
         if (gridChildren) {
-          (gridChildren[value] as HTMLButtonElement).style.backgroundColor =
-            Colors.PURPLE;
+          (gridChildren[value] as HTMLButtonElement).classList.remove("check");
+          (gridChildren[value] as HTMLButtonElement).classList.add("red");
         }
       }
     }

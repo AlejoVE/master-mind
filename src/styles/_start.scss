@@ -54,3 +54,21 @@ ul {
   font-size: 12px;
   font-weight: 700;
 }
+
+.mention-check {
+  border: none;
+  padding: 0.2rem 0.5rem;
+  border-radius: 10px;
+  background-color: $black;
+  text-decoration: none;
+  text-transform: uppercase;
+  color: white;
+  font-size: 12px;
+  font-weight: 700;
+  z-index: 9999;
+  //
+  border-top-right-radius: 220px;
+  border-bottom-right-radius: 220px;
+  border-bottom: 0;
+  height: 3.4rem;
+}

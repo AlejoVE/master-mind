@@ -79,10 +79,17 @@ function Row() {
             </button>
           )}
         </div>
+        {/* response */}
         <div ref={gridEl} className="row-grid">
           {slots.map((row, i) => {
             return (
-              <Circle key={i} gameOver={gameOver} disabled={true} size="1.2" />
+              <Circle
+                key={i}
+                gameOver={gameOver}
+                disabled={true}
+                size="1.2"
+                class="check"
+              />
             );
           })}
         </div>

@@ -23,7 +23,7 @@ function GamePage() {
       <div className="page-content">
         {" "}
         <Link to={"/start"} className="back">
-          Home
+          <i className="arrow left"></i>Home
         </Link>
         <div className="game">
           <div className="header">
