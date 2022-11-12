@@ -1,5 +1,4 @@
 import Swal from 'sweetalert';
-import { Colors } from '../types/types';
 
 export const generateRandomCode = (colors: string[]) => {
 	const randomCode: string[] = [];
