@@ -1,41 +1,57 @@
-import AvailableColors from './AvailableColors';
-import Row from './Row';
-import ShowCode from './ShowCode';
-import { useContext, useEffect } from 'react';
-import { GameContext } from '../context/gameContext';
-import { Link } from 'react-router-dom';
-import Timer from './Timer';
+import AvailableColors from "./AvailableColors";
+import Row from "./Row";
+import ShowCode from "./ShowCode";
+import { useContext, useEffect } from "react";
+import { GameContext } from "../context/gameContext";
+import { Link } from "react-router-dom";
+import Timer from "./Timer";
 
 function GamePage() {
-	const { gameRows, setAvailableRows, gameOver } = useContext(GameContext);
-	const gameRowsArr = Array.from(Array(gameRows).keys());
+  const { gameRows, setAvailableRows, gameOver } = useContext(GameContext);
+  const gameRowsArr = Array.from(Array(gameRows).keys());
 
-	useEffect(() => {
-		setAvailableRows(gameRows);
-	}, [gameRows, setAvailableRows]);
+  useEffect(() => {
+    setAvailableRows(gameRows);
+  }, [gameRows, setAvailableRows]);
 
-	const reloadPage = () => {
-		window.location.reload();
-	};
+  const reloadPage = () => {
+    window.location.reload();
+  };
 
-	return (
-		<>
-			<Link to={'/start'}>Home</Link>
-			<div className='page-content'>
-				<Timer />
-				{gameOver && (
-					<button className='button' onClick={reloadPage}>
-						NEW GAME
-					</button>
-				)}
-				<ShowCode />
-				{gameRowsArr.map((row, i) => (
-					<Row key={i} />
-				))}
-				<AvailableColors />
-			</div>
-		</>
-	);
+  return (
+    <>
+      <div className="page-content">
+        {" "}
+        <Link to={"/start"} className="back">
+          <i className="arrow left"></i>Home
+        </Link>
+        <div className="game">
+          <div className="header">
+            {gameOver ? (
+              <button className="new-game" id="new-game" onClick={reloadPage}>
+                NEW GAME
+              </button>
+            ) : (
+              <Timer />
+            )}
+
+            <div className="sequence" id="sequence">
+              <ShowCode />
+            </div>
+          </div>
+
+          <div className="board" id="board">
+            {gameRowsArr.map((row, i) => (
+              <Row key={i} />
+            ))}
+          </div>
+          <div className="available-colors" id="available-colors">
+            <AvailableColors />
+          </div>
+        </div>
+      </div>
+    </>
+  );
 }
 
 export default GamePage;

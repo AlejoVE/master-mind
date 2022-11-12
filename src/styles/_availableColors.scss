@@ -1,18 +1,45 @@
 @import "./variables";
+//whole bottom stuff
+.select-color {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 2rem;
+}
+.current-color {
+  display: flex;
+  flex-direction: column;
+  font-size: 10px;
+  .color {
+    border: 7px solid lighten($wood, 20%);
+    border-radius: 50px;
+    background-color: $wood;
+    height: 4rem;
+    width: 4rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
+    button {
+      border-radius: 50%;
+      border: none;
+    }
+  }
+}
 .available-colors-container {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(2, 1fr);
-  place-items: center;
-  margin-top: 5vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 7px solid lighten($wood, 20%);
+  border-radius: 50px;
   background-color: $wood;
   width: fit-content;
-  padding: 1rem;
+  padding: 0.5rem;
   gap: 0.4rem;
-  border-radius: $border-radius;
 
   button {
+    border-radius: 50%;
     @extend %color-button;
   }
 }

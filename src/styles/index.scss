@@ -1,62 +1,59 @@
-@import './buttons';
-@import './row';
-@import './availableColors';
-@import './instructions';
-@import './variables';
+@import "./buttons";
+@import "./row";
+@import "./availableColors";
+@import "./start";
+@import "./game";
 
 body {
-	padding: 0;
-	margin: 0;
-	box-sizing: border-box;
-	font-family: monospace;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: monospace;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 2.2rem;
+  text-align: left;
+  background-color: lemonchiffon;
 }
 
 .page-content {
-	width: 100vw;
-	height: 100vh;
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
+  width: 100%;
+  height: 100%;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow: none;
+  background-color: lemonchiffon;
+}
+.white {
+  border-radius: 50%;
+  background-color: white !important;
 }
 
-.start-header {
-	font-size: 56px;
-	font-weight: 600;
-	background-color: $green;
-	padding: 2rem;
-	border-radius: 220px;
-	color: white;
-	@extend %crazy-outline;
+.red {
+  border-radius: 50%;
+  background-color: red !important;
 }
 
-.question {
-	font-size: 20px;
-	margin-bottom: 1rem;
-	color: $black;
-	display: block;
-
-	.options {
-		display: flex;
-		justify-content: center;
-		gap: 3rem;
-		font-size: 30px;
-	}
+.back {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  text-decoration: none;
+  color: $blue;
 }
 
-#start-game {
-	margin-top: 2rem;
-	padding: 1rem;
-	border-radius: 20px;
-	background-color: $black;
-	text-decoration: none;
-	text-transform: uppercase;
-	color: white;
-	font-size: 20px;
-	font-weight: 800;
+.arrow {
+  border: solid $blue;
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  padding: 3px;
+}
 
-	&:hover {
-		background-color: $yellow;
-		color: $black;
-	}
+.left {
+  transform: rotate(135deg);
+  -webkit-transform: rotate(135deg);
+  margin-right: 0.2rem;
 }
