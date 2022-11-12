@@ -25,7 +25,7 @@ const GameProvider: FC<Props> = ({ children }: Props) => {
         setGameOver,
         availableRows,
         setAvailableRows,
-        gameRows: 12,
+        gameRows: 10,
         startTimer,
         setStartTimer
       }}

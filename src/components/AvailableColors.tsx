@@ -22,21 +22,22 @@ function AvailableColors() {
     <div className="select-color">
       <div className="current-color">
         {/* indication which color is selected */}
-        <h3>Selected color</h3>
+
         <div className="color">
           <Circle
             disabled={true}
             onClick={handleClick}
             color={currentColor}
-            size="4"
+            size="3"
           />
         </div>
+        <span>Selected color</span>
       </div>
       <div className="available-colors-container">
         {colors.map((color, i) => {
           return (
             <div key={i} className="square">
-              <Circle key={i} onClick={handleClick} color={color} size="4" />
+              <Circle key={i} onClick={handleClick} color={color} size="3" />
             </div>
           );
         })}

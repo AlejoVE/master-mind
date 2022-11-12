@@ -1,97 +1,95 @@
-import Swal from 'sweetalert';
-import { Colors } from '../types/types';
+import Swal from "sweetalert";
+import { Colors } from "../types/types";
 
 export const generateRandomCode = (colors: string[]) => {
-	const randomCode: string[] = [];
+  const randomCode: string[] = [];
 
-	do {
-		const randomIndex: number = Math.floor(Math.random() * colors.length);
-		const color: string = colors[randomIndex];
+  do {
+    const randomIndex: number = Math.floor(Math.random() * colors.length);
+    const color: string = colors[randomIndex];
 
-		// Duplicates not allowed
-		if (!randomCode.includes(color)) {
-			randomCode.push(color);
-		}
-	} while (randomCode.length < 4);
+    // Duplicates not allowed
+    if (!randomCode.includes(color)) {
+      randomCode.push(color);
+    }
+  } while (randomCode.length < 4);
 
-	return randomCode;
+  return randomCode;
 };
 
 export const checkAnswers = (
-	refRowEl: React.RefObject<HTMLDivElement>,
-	refGridEl: React.RefObject<HTMLDivElement>,
-	currentCode: string[]
+  refRowEl: React.RefObject<HTMLDivElement>,
+  refGridEl: React.RefObject<HTMLDivElement>,
+  currentCode: string[]
 ) => {
-	const rowChildren = refRowEl.current?.childNodes;
-	const gridChildren = refGridEl.current?.childNodes;
-	const rowColors: (string | null)[] = [];
+  const rowChildren = refRowEl.current?.childNodes;
+  const gridChildren = refGridEl.current?.childNodes;
+  const rowColors: (string | null)[] = [];
 
-	// Get all row's colors
-	rowChildren?.forEach((button) => {
-		const color = (button as HTMLButtonElement).getAttribute('data-color');
-		rowColors.push(color);
-	});
+  // Get all row's colors
+  rowChildren?.forEach(button => {
+    const color = (button as HTMLButtonElement).getAttribute("data-color");
+    rowColors.push(color);
+  });
 
-	// This will be use to select a random space in the grid of 4 small buttons on the right
-	const availablePositions = [0, 1, 2, 3];
+  // This will be use to select a random space in the grid of 4 small buttons on the right
+  const availablePositions = [0, 1, 2, 3];
 
-	//  Fixed bug, if user select 4 tines the sane color, this will only show 1 in the grid if the color if in the code.
-	const filterColors = Array.from(new Set(rowColors));
-	console.log({ currentCode });
-	for (let i = 0; i < filterColors.length; i++) {
-		if (currentCode.includes(rowColors[i] as string)) {
-			const randomIndex: number = Math.floor(
-				Math.random() * availablePositions.length
-			);
-			const value = availablePositions[randomIndex];
-			availablePositions.splice(randomIndex, 1);
-			if (currentCode[i] === rowColors[i]) {
-				if (gridChildren) {
-					(
-						gridChildren[value] as HTMLButtonElement
-					).style.backgroundColor = Colors.YELLOW;
-				}
-			} else {
-				if (gridChildren) {
-					(
-						gridChildren[value] as HTMLButtonElement
-					).style.backgroundColor = Colors.PURPLE;
-				}
-			}
-		}
-	}
+  //  Fixed bug, if user select 4 tines the sane color, this will only show 1 in the grid if the color if in the code.
+  const filterColors = Array.from(new Set(rowColors));
+  console.log({ currentCode });
+  for (let i = 0; i < filterColors.length; i++) {
+    if (currentCode.includes(rowColors[i] as string)) {
+      const randomIndex: number = Math.floor(
+        Math.random() * availablePositions.length
+      );
+      const value = availablePositions[randomIndex];
+      availablePositions.splice(randomIndex, 1);
+      if (currentCode[i] === rowColors[i]) {
+        if (gridChildren) {
+          (gridChildren[value] as HTMLButtonElement).style.backgroundColor =
+            Colors.YELLOW;
+        }
+      } else {
+        if (gridChildren) {
+          (gridChildren[value] as HTMLButtonElement).style.backgroundColor =
+            Colors.PURPLE;
+        }
+      }
+    }
+  }
 
-	if (currentCode.toString() === rowColors.toString()) {
-		Swal('YOU WON!', 'Congratulations', 'success');
-		return true;
-	}
+  if (currentCode.toString() === rowColors.toString()) {
+    Swal("YOU WON!", "Congratulations", "success");
+    return true;
+  }
 };
 
 export const changeButtonColor = (
-	e: React.MouseEvent<HTMLButtonElement>,
-	color: string
+  e: React.MouseEvent<HTMLButtonElement>,
+  color: string
 ) => {
-	(e.target as HTMLButtonElement).style.backgroundColor = color;
-	(e.target as HTMLButtonElement).setAttribute('data-color', color);
+  (e.target as HTMLButtonElement).style.backgroundColor = color;
+  (e.target as HTMLButtonElement).setAttribute("data-color", color);
 };
 
 export const getRowColors = (rowEl: React.RefObject<HTMLDivElement>) => {
-	const rowChildren = rowEl.current?.childNodes;
-	const rowColors: (string | null)[] = [];
+  const rowChildren = rowEl.current?.childNodes;
+  const rowColors: (string | null)[] = [];
 
-	if (rowChildren) {
-		// The current colors in the row (default and user colors), if user did not put a color, the data-color attribute will be null
-		rowChildren.forEach((button) => {
-			const color = (button as HTMLButtonElement).getAttribute('data-color');
-			rowColors.push(color);
-		});
-	}
+  if (rowChildren) {
+    // The current colors in the row (default and user colors), if user did not put a color, the data-color attribute will be null
+    rowChildren.forEach(button => {
+      const color = (button as HTMLButtonElement).getAttribute("data-color");
+      rowColors.push(color);
+    });
+  }
 
-	const filteredColors = rowColors.filter((color) => color !== null);
+  const filteredColors = rowColors.filter(color => color !== null);
 
-	return filteredColors;
+  return filteredColors;
 };
 
 export const triggerGameOverModal = () => {
-	Swal('Game over', '', 'error');
+  Swal("Game over", "", "error");
 };

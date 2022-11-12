@@ -27,29 +27,27 @@ function GamePage() {
         </Link>
         <div className="game">
           <div className="header">
-            <div className="timer" id="timer">
-              {/* <Timer /> */}
-              {gameOver ? (
-                <button className="new-game" id="new-game" onClick={reloadPage}>
-                  NEW GAME
-                </button>
-              ) : (
-                <Timer />
-              )}
-            </div>
+            {gameOver ? (
+              <button className="new-game" id="new-game" onClick={reloadPage}>
+                NEW GAME
+              </button>
+            ) : (
+              <Timer />
+            )}
 
             <div className="sequence" id="sequence">
               <ShowCode />
             </div>
           </div>
-        </div>
-        <div className="board" id="board">
-          {gameRowsArr.map((row, i) => (
-            <Row key={i} />
-          ))}
-        </div>
-        <div className="available-colors" id="available-colors">
-          <AvailableColors />
+
+          <div className="board" id="board">
+            {gameRowsArr.map((row, i) => (
+              <Row key={i} />
+            ))}
+          </div>
+          <div className="available-colors" id="available-colors">
+            <AvailableColors />
+          </div>
         </div>
       </div>
     </>

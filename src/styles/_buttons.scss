@@ -1,14 +1,10 @@
 @import "./variables";
 
-.size10 {
+.size310 {
   height: 3rem;
   min-height: 3rem;
   width: 3rem;
   min-width: 3rem;
-  border-radius: 50%;
-}
-
-button {
   border-radius: 50%;
 }
 
@@ -20,6 +16,7 @@ button {
 }
 
 %color-button {
+  border-radius: 50%;
   border: none;
   box-shadow: inset 0px 0px 10px rgba(53, 53, 53, 0.9);
   position: relative;
@@ -40,13 +37,13 @@ button {
 }
 
 %empty-slot {
+  border-radius: 50%;
   background: #32271c;
   border: none;
   box-shadow: inset 5px 5px 19px rgb(53, 39, 22);
 }
 
 %cta-button {
-  margin-top: 1rem;
   padding: 1rem 2rem;
   border-radius: 20px;
   background-color: $black;
