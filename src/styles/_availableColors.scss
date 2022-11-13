@@ -12,11 +12,11 @@
   flex-direction: column;
   font-size: 10px;
   .color {
-    border: 7px solid lighten($wood, 20%);
+    border: 6px solid lighten($wood, 20%);
     border-radius: 50px;
     background-color: $wood;
-    height: 4rem;
-    width: 4rem;
+    height: 3rem;
+    width: 3rem;
     display: flex;
     justify-content: center;
     align-items: center;

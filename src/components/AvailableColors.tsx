@@ -28,7 +28,7 @@ function AvailableColors() {
             disabled={true}
             onClick={handleClick}
             color={currentColor}
-            size="3"
+            size="2.5"
           />
         </div>
         <span>Selected color</span>
@@ -37,7 +37,7 @@ function AvailableColors() {
         {colors.map((color, i) => {
           return (
             <div key={i} className="square">
-              <Circle key={i} onClick={handleClick} color={color} size="3" />
+              <Circle key={i} onClick={handleClick} color={color} size="2.5" />
             </div>
           );
         })}
