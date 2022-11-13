@@ -68,7 +68,7 @@ function Row() {
                   gameOver={gameOver}
                   disabled={disabled}
                   onClick={handleClick}
-                  size="3"
+                  size="2.5"
                 />
               );
             })}
