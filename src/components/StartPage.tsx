@@ -43,7 +43,7 @@ function StartPage() {
 							end of each row you will see 4 small slots - you will get
 							the computers response there. If you guessed the color
 							right - you will see white circle, if you guessed the color
-							and the position right - you will see red circle.
+							and the position right - you will see green circle.
 						</li>
 					</ul>
 				</div>

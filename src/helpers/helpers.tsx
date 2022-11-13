@@ -45,11 +45,14 @@ export const checkAnswers = (
 			const value = availablePositions[randomIndex];
 			availablePositions.splice(randomIndex, 1);
 			if (currentCode[i] === rowColors[i]) {
+				// gridChildren &&
 				if (gridChildren) {
 					(gridChildren[value] as HTMLButtonElement).classList.remove(
 						'check'
 					);
-					(gridChildren[value] as HTMLButtonElement).classList.add('red');
+					(gridChildren[value] as HTMLButtonElement).classList.add(
+						'green'
+					);
 				}
 			} else {
 				if (gridChildren) {
