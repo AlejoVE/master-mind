@@ -36,7 +36,6 @@ export const checkAnswers = (
 
 	//  Fixed bug, if user select 4 tines the sane color, this will only show 1 in the grid if the color if in the code.
 	const filterColors = Array.from(new Set(rowColors));
-	console.log({ currentCode });
 	for (let i = 0; i < filterColors.length; i++) {
 		if (currentCode.includes(rowColors[i] as string)) {
 			const randomIndex: number = Math.floor(

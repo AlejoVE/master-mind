@@ -1,73 +1,73 @@
-@import "./variables";
+@import './variables';
 
 .row-main {
-  background-color: $wood;
-  width: fit-content;
-  min-width: 349px;
-  border-radius: $border-radius;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-  padding: 0.2rem;
-  margin-top: 0.7rem;
-  margin-bottom: 0.5rem;
+	background-color: $wood;
+	width: fit-content;
+	min-width: 349px;
+	border-radius: $border-radius;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: relative;
+	padding: 0.2rem;
+	margin-top: 0.7rem;
+	margin-bottom: 0.5rem;
 }
 
 .row-main-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 1rem;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 1rem;
 }
 
 .row-circles-container {
-  div {
-    display: flex;
-    justify-content: space-between;
-    justify-content: center;
-    align-items: center;
-    gap: 0.5rem;
-  }
+	div {
+		display: flex;
+		justify-content: space-between;
+		justify-content: center;
+		align-items: center;
+		gap: 0.5rem;
+	}
 
-  button:not(.check-button) {
-    @extend %empty-slot;
-  }
+	button:not(.check-button) {
+		@extend %empty-slot;
+	}
 }
 
 .row-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  width: fit-content;
-  gap: 0.4rem;
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	width: fit-content;
+	gap: 0.4rem;
 
-  .check {
-    border-radius: 50%;
-  }
+	.check {
+		border-radius: 50%;
+	}
 }
 
 .check-button {
-  position: absolute;
-  top: 0;
-  right: -60px;
-  border: none;
-  padding: 0.2rem 0.5rem;
-  border-radius: 10px;
-  background-color: $black;
-  text-decoration: none;
-  text-transform: uppercase;
-  color: white;
-  font-size: 12px;
-  font-weight: 700;
-  z-index: 9999;
-  //
-  border-top-right-radius: 220px;
-  border-bottom-right-radius: 220px;
-  border-bottom: 0;
-  height: 3.4rem;
+	position: absolute;
+	top: 0;
+	right: -60px;
+	border: none;
+	padding: 0.2rem 0.5rem;
+	border-radius: 10px;
+	background-color: $black;
+	text-decoration: none;
+	text-transform: uppercase;
+	color: white;
+	font-size: 12px;
+	font-weight: 700;
+	z-index: 9999;
+	//
+	border-top-right-radius: 220px;
+	border-bottom-right-radius: 220px;
+	border-bottom: 0;
+	height: 3.2rem;
 
-  &:hover {
-    background-color: $yellow;
-    color: $wood-shadow;
-  }
+	&:hover {
+		background-color: $yellow;
+		color: $wood-shadow;
+	}
 }
